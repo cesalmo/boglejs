@@ -21,14 +21,16 @@ async function main() {
         .then((retSelect) => oRetSelect = retSelect)
         .catch((error) => console.log(error));
 
-
+    //informa array de promesas con las entradas anteriores
     for (let i in oRetSelect) {
 
         oPromise.push(fetch(urlMorningStar(oRetSelect[i].IDFONDO)));
 
     };
 
+    //scrapea los precios de los websites
     var oPrices =
+        //recupera raw html
         Promise.all(oPromise).then(function (res) {
             var oResProm = new Array();
             for (let a in res) {
@@ -36,9 +38,8 @@ async function main() {
             };
             return Promise.all(oResProm);
         }).
-
+            //parsea html
             then(function (res) {
-
                 var oParsea = function (text) {
                     // crea DOM y recupera campo
                     const dom = new jsdomObj(text);

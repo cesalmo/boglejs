@@ -1,11 +1,11 @@
 var sqlite3 = require('sqlite3');
-var dbFilePath = './models/bogle.db';
-var query1 = "select * from portfolioSetup where USR = ?";
-var params = [ '01' ];
+// var dbFilePath = './models/bogle.db';
+// var query1 = "select * from portfolioSetup where USR = ?";
+// var params = [ '01' ];
 
 
 module.exports = 
-async function selectPortfolioSetup(dbFilePath, query1, params) {
+function selectPortfolioSetup(dbFilePath, query1, params) {
 
     // abre la ddbb
     let db = new sqlite3.Database(dbFilePath, (error) => {
@@ -30,7 +30,7 @@ async function selectPortfolioSetup(dbFilePath, query1, params) {
         })
     };
 
-    var retSelect = await select01();
+    var retSelect = select01();
     db.close();
     return retSelect;
 };
