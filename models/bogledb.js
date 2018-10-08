@@ -1,13 +1,14 @@
 var sqlite3 = require('sqlite3');
 var dbFilePath = './models/bogle.db';
-var query1 = "select * from portfolioSetup";
+var query1 = "select * from portfolioSetup where USR = ?";
+var params = [ '01' ];
 
 
 module.exports = 
-async function select01(dbFilePath, query1) {
+async function selectPortfolioSetup(dbFilePath, query1, params) {
 
     // abre la ddbb
-    this.db = new sqlite3.Database(dbFilePath, (error) => {
+    let db = new sqlite3.Database(dbFilePath, (error) => {
         if (error) {
             console.log("error al abrir la ddbb");
         } else {
@@ -19,7 +20,7 @@ async function select01(dbFilePath, query1) {
     // hace select
     var select01 = function () {
         return new Promise(function (resolve, reject) {
-            this.db.all(query1, function (err, rows) {
+            db.all(query1, params, function (err, rows) {
                 if (err) {
                     reject(err);
                 } else {
@@ -29,12 +30,12 @@ async function select01(dbFilePath, query1) {
         })
     };
 
-    var retSelect = select01();
-
+    var retSelect = await select01();
+    db.close();
     return retSelect;
 };
 
-// select01(dbFilePath, query1)
+// selectPortfolioSetup(dbFilePath, query1, params)
 //     .then((retSelect) => console.log(retSelect[0]))
 //     .catch((error) => console.log(error));
 

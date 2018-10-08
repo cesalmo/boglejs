@@ -1,9 +1,7 @@
 //dependencias
-// const fetch = require('fetch-retry');
 const fetch = require('node-fetch');
 const jsdom = require("jsdom");
-var oPortfolio = require("./models/portfolio");
-var oSelect01 = require("./models/bogledb");
+var selectPortfolioSetup = require("./models/bogledb");
 const jsdomObj = jsdom.JSDOM;
 
 var dbFilePath = './models/bogle.db';
@@ -17,11 +15,11 @@ var urlMorningStar = function (id) {
 async function main() {
     var oPromise = new Array();
     var oRetSelect = new Array();
-    
+
     //recupera entradas de BBDD portfoliosetup
-    await oSelect01(dbFilePath, query1)
-    .then((retSelect) => oRetSelect = retSelect)
-    .catch((error) => console.log(error));
+    await selectPortfolioSetup(dbFilePath, query1)
+        .then((retSelect) => oRetSelect = retSelect)
+        .catch((error) => console.log(error));
 
 
     for (let i in oRetSelect) {

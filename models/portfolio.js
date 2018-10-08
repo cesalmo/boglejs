@@ -11,18 +11,18 @@
 // 'http://www.morningstar.es/es/funds/snapshot/snapshot.aspx?id=F0000020BC',
 // 'http://www.morningstar.es/es/funds/snapshot/snapshot.aspx?id=F0GBR06B2N']
 
-module.exports =
+// module.exports =
 
-    [
-        {
-            name: 'F00000286Y',
-            price: ''
-        }
-        ,
-        {
-            name: 'F000002873',
-            price: ''
-        }
+//     [
+//         {
+//             name: 'F00000286Y',
+//             price: ''
+//         }
+//         ,
+//         {
+//             name: 'F000002873',
+//             price: ''
+//         }
         // ,
         // {
         //     'name': 'F000002HT2',
@@ -60,6 +60,6 @@ module.exports =
         //     'name': 'F0GBR06B2N',
         //     'price': ''
         // }
-    ]
-    ;
+    // ]
+    // ;
 

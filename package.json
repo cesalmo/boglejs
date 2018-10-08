@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "fetch-retry": "^2.0.0",
     "jsdom": "^12.1.0",
     "node-fetch": "^2.2.0",
     "sqlite3": "^4.0.2"
