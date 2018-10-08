@@ -59,6 +59,7 @@ async function main() {
             }).
             catch(console.log("error"));
 
+            
     await oPrices.then(res => console.log(res));
     console.log("fin");
 
