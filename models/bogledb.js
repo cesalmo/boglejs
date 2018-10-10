@@ -60,6 +60,7 @@ async function selectUrl(dbFilePath, oRetSelect) {
 
 module.exports = {
   querySelect01,
+  selectUrl,
 };
 
 // selectUrl();
