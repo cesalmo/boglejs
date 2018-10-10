@@ -1,7 +1,8 @@
 // dependencias
 const fetch = require('node-fetch');
 const jsdom = require('jsdom');
-const selectPortfolioSetup = require('./models/bogledb');
+const fs = require('fs');
+const GestionBBDD = require('./models/bogledb');
 
 const JsdomObj = jsdom.JSDOM;
 const dbFilePath = './models/bogle.db';
@@ -17,12 +18,13 @@ async function main() {
   let oRetSelect = [];
 
   // recupera entradas de BBDD portfoliosetup
-  await selectPortfolioSetup(dbFilePath, query1)
+  await GestionBBDD.selectPortfolioSetup(dbFilePath, query1)
     // .then(retSelect => (oRetSelect = retSelect))
     .then((retSelect) => {
       oRetSelect = retSelect;
     })
     .catch(error => console.log(error));
+
 
   // informa array de promesas con las entradas anteriores
   for (const i in oRetSelect) {
@@ -54,9 +56,11 @@ async function main() {
         const oPrecios = res.map(oBody => oParsea(oBody));
         return oPrecios;
       },
-      ( rej ) => { console.log(`error en promise.all ${rej}`) },
+      (rej) => {
+        console.log(`error en promise.all ${rej}`);
+      },
     )
-    .catch(console.log('error'));
+    .catch(onrej => console.log(`error ${onrej}`));
 
   await oPrices.then(res => console.log(res));
   console.log('fin');
