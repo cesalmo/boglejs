@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "Iniciar app",
             "program": "${workspaceFolder}\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Iniciar app_aux",
+            "program": "${workspaceFolder}\\app_aux.js"
         }
     ]
 }
