@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Iniciar winston",
+            "program": "${workspaceFolder}\\util\\winston.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Iniciar bogledb",
             "program": "${workspaceFolder}\\models\\bogledb.js"
         },

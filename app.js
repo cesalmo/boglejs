@@ -43,7 +43,7 @@ async function main() {
     .catch(error => console.log(error));
 
   // fs.writeFileSync('./retselect', JSON.stringify(oRetSelect));
-  oURL = await GestionBBDD.selectUrl(dbFilePath, oRetSelect)
+  oURL = await GestionBBDD.selectUrl(dbFilePath, oRetSelect);
 
 
   // informa array de promesas con las entradas anteriores a partir de
@@ -82,10 +82,9 @@ async function main() {
   oInsertPrices = Aux.creaPrices(oRetSelect, oRes);
 
 
-  const nRegistrosInsertados = await GestionBBDD.queryInsert01(dbFilePath, oInsertPrices)
+  const nRegistrosInsertados = await GestionBBDD.queryInsert01(dbFilePath, oInsertPrices);
 
   console.log(`Insertados ${nRegistrosInsertados} registros`);
-
 }
 
 main();

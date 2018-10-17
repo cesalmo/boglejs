@@ -165,12 +165,12 @@ module.exports = class aux {
       oEntrada.push(oPrices[i]);
 
       oTablaPrices.push(oEntrada);
-    //   oPrices = [];
+      //   oPrices = [];
       oEntrada = [];
     }
     return oTablaPrices;
   }
-}
+};
 
 
 // var aa = aux.creaPrices(retselect, res);

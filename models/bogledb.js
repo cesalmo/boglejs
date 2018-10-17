@@ -110,9 +110,9 @@ values ${sPlaceholders}`;
         });
     }));
   }
-  const oPromiseInsert  = insert01();
+  const oPromiseInsert = insert01();
   db.close();
-  return oPromiseInsert ;
+  return oPromiseInsert;
 }
 
 module.exports = {
