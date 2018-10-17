@@ -15,6 +15,8 @@ const query1 = 'select * from portfolioSetup';
  * @param {string} text Cuerpo de repuesta de funcion 'FETCH'
  */
 function oParsea(text) {
+  // parsea fechas:
+  // dom.window.document.getElementsByClassName('line heading')[0].textContent.toString().replace('VL','')
   // crea DOM y recupera campo
   const dom = new JsdomObj(text);
   const sVal = dom.window.document.getElementsByClassName('line text')[0].textContent;
